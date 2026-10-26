@@ -1,0 +1,317 @@
+:root {
+  --bg: #121417;
+  --panel: #1b1e23;
+  --card: #22262c;
+  --border: #33383f;
+  --text: #e6e6e6;
+  --muted: #8b929b;
+  --accent: #4f8cff;
+  --danger: #ff6b6b;
+  --ok: #4cc38a;
+  --warn: #f0b94a;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif;
+  font-size: 14px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 12px;
+}
+
+/* ---------- 레이아웃 ---------- */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 16px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.topbar nav {
+  display: flex;
+  gap: 14px;
+}
+
+.topbar nav a {
+  color: var(--muted);
+}
+
+.topbar nav a.active {
+  color: var(--text);
+}
+
+.topbar-user {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+/* ---------- 공통 요소 ---------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 480px;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 10px;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  background: #2c323a;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+button.danger {
+  color: var(--danger);
+}
+
+button.small {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.error {
+  color: var(--danger);
+  white-space: pre-wrap;
+}
+
+.success {
+  color: var(--ok);
+}
+
+.badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #2c323a;
+  font-size: 11px;
+}
+
+.pager {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 4px 0;
+}
+
+/* ---------- 영화 ---------- */
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.movie-card {
+  display: block;
+  color: var(--text);
+  padding: 8px;
+}
+
+.movie-card img,
+.poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--panel);
+}
+
+.movie-detail {
+  display: flex;
+  gap: 16px;
+}
+
+.movie-detail img {
+  width: 200px;
+  border-radius: 6px;
+}
+
+/* ---------- 개발 로그 패널 ---------- */
+
+.devlog {
+  width: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+}
+
+.devlog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.devlog-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  flex: 1;
+}
+
+.devlog-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.devlog-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+  padding: 6px 10px;
+  font: inherit;
+}
+
+.log-method {
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.log-path {
+  word-break: break-all;
+}
+
+.log-status.ok {
+  color: var(--ok);
+}
+
+.log-status.warn {
+  color: var(--warn);
+}
+
+.log-status.err {
+  color: var(--danger);
+}
+
+.log-retry {
+  padding: 0 10px 6px;
+  color: var(--warn);
+}
+
+.devlog-detail {
+  padding: 6px 10px 10px;
+  background: var(--bg);
+}
